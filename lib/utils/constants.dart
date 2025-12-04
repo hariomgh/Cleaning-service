@@ -1,13 +1,13 @@
 class ApiConstants {
   // Base URL - Update this with your actual server URL
-  static const String baseUrl = 'http://212.132.99.95:8081/';
+  static const String baseUrl = 'https://dev.shinehub.de/';
 
   // API Endpoints
   static const String sendOtpEndpoint = '/otp/send-otp';
   static const String signupEndpoint = '/auth/signup';
   static const String loginEndpoint = '/auth/login';
   static const String getUserEndpoint = '/auth/user';
-  static const String forgotPasswordEndpoint = '/auth//forgot-password';
+  static const String forgotPasswordEndpoint = '/auth/forgot-password';
   static const String resetPasswordEndpoint = '/auth/reset-password';
   
   // Shared Preferences Keys
