@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../theme/app_colors.dart';
 import '../viewmodels/auth_viewmodel.dart';
+import '../viewmodels/booking_viewmodel.dart';
 import '../widgets/category_card.dart';
 import '../widgets/filter_chip_widget.dart';
 import 'booking_page.dart';
-import 'login_page.dart';
 import 'user_profile_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -251,58 +251,94 @@ class _HomePageState extends State<HomePage> {
                           title: 'Home Cleaning',
                           subtitle: 'Standard & deep',
                           icon: Image.asset(
-                            'assets/home_cleaning.png', // Placeholder
+                            'assets/home_cleaning.png',
                             width: 40,
                             height: 40,
                             errorBuilder: (context, error, stackTrace) =>
-                                const Icon(Icons.home, size: 40, color: Colors.brown),
+                                const Icon(Icons.home, size: 40, color: Color(0xFF4CAF50)),
                           ),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const BookingPage(
+                                  initialBookingType: BookingType.residential,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                         CategoryCard(
                           title: 'Airbnb',
                           subtitle: 'Guest turnover',
                           icon: Image.asset(
-                            'assets/airbnb.png', // Placeholder
+                            'assets/airbnb.png',
                             width: 40,
                             height: 40,
                             errorBuilder: (context, error, stackTrace) =>
-                                const Icon(Icons.hotel, size: 40, color: Colors.red),
+                                const Icon(Icons.hotel, size: 40, color: Color(0xFF2196F3)),
                           ),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const BookingPage(
+                                  initialBookingType: BookingType.residential,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                         CategoryCard(
                           title: 'Office',
                           subtitle: 'Workspaces',
                           icon: Image.asset(
-                            'assets/office.png', // Placeholder
+                            'assets/office.png',
                             width: 40,
                             height: 40,
                             errorBuilder: (context, error, stackTrace) =>
-                                const Icon(Icons.business, size: 40, color: Colors.blueGrey),
+                                const Icon(Icons.business, size: 40, color: Color(0xFFFF9800)),
                           ),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const BookingPage(
+                                  initialBookingType: BookingType.commercial,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                         CategoryCard(
                           title: 'Windows',
                           subtitle: 'Inside & out',
                           icon: Image.asset(
-                            'assets/windows.png', // Placeholder
+                            'assets/windows.png',
                             width: 40,
                             height: 40,
                             errorBuilder: (context, error, stackTrace) =>
-                                const Icon(Icons.window, size: 40, color: Colors.lightBlue),
+                                const Icon(Icons.window, size: 40, color: Color(0xFF9C27B0)),
                           ),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const BookingPage(
+                                  initialBookingType: BookingType.residential,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 32),
 
-                  // Other Services
+                  // Other Services - Booking Types
                   const Text(
-                    'Other Services',
+                    'Booking Services',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -317,28 +353,80 @@ class _HomePageState extends State<HomePage> {
                       clipBehavior: Clip.none,
                       children: [
                         CategoryCard(
-                          title: 'Laundry',
-                          subtitle: 'Wash & iron',
-                          icon: const Icon(Icons.local_laundry_service, size: 40, color: Colors.brown),
-                          onTap: () {},
+                          title: 'Residential',
+                          subtitle: 'Standard & deep',
+                          icon: const Icon(
+                            Icons.home,
+                            size: 40,
+                            color: Color(0xFF4CAF50), // Green
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const BookingPage(
+                                  initialBookingType: BookingType.residential,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                         CategoryCard(
-                          title: 'Garden',
-                          subtitle: 'Terrace & lawn',
-                          icon: const Icon(Icons.grass, size: 40, color: Colors.green),
-                          onTap: () {},
+                          title: 'Hourly',
+                          subtitle: 'Flexible hours',
+                          icon: const Icon(
+                            Icons.access_time,
+                            size: 40,
+                            color: Color(0xFF2196F3), // Blue
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const BookingPage(
+                                  initialBookingType: BookingType.hourly,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                         CategoryCard(
-                          title: 'Move-out',
-                          subtitle: 'End of lease',
-                          icon: const Icon(Icons.inventory_2, size: 40, color: Colors.pink),
-                          onTap: () {},
+                          title: 'Commercial',
+                          subtitle: 'Business spaces',
+                          icon: const Icon(
+                            Icons.business,
+                            size: 40,
+                            color: Color(0xFFFF9800), // Orange
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const BookingPage(
+                                  initialBookingType: BookingType.commercial,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                         CategoryCard(
-                          title: 'After party',
-                          subtitle: 'One-time',
-                          icon: const Icon(Icons.celebration, size: 40, color: Colors.purple),
-                          onTap: () {},
+                          title: 'Home Org',
+                          subtitle: 'Declutter & organize',
+                          icon: const Icon(
+                            Icons.inventory_2,
+                            size: 40,
+                            color: Color(0xFF9C27B0), // Purple
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const BookingPage(
+                                  initialBookingType: BookingType.homeOrganization,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),

@@ -10,6 +10,12 @@ class ApiConstants {
   static const String forgotPasswordEndpoint = '/auth/forgot-password';
   static const String resetPasswordEndpoint = '/auth/reset-password';
   
+  // Booking Endpoints
+  static const String residentialBookingEndpoint = '/residential-booking/';
+  static const String hourlyBookingEndpoint = '/hourly-booking/';
+  static const String commercialBookingEndpoint = '/commercial-booking/';
+  static const String homeOrganizationEndpoint = '/home-organization/';
+  
   // Shared Preferences Keys
   static const String userIdKey = 'user_id';
   static const String userEmailKey = 'user_email';

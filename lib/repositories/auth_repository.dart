@@ -101,7 +101,9 @@ class AuthRepository {
       final response = await apiService.get(endpoint);
       
       print('👤 AuthRepository: API response received, parsing to UserModel');
-      final userModel = UserModel.fromJson(response);
+      // Extract the 'result' object from the response
+      final userData = response['result'] ?? response;
+      final userModel = UserModel.fromJson(userData);
       print('👤 AuthRepository: UserModel parsed successfully');
       print('   - User ID: ${userModel.id}');
       print('   - Email: ${userModel.email ?? "N/A"}');

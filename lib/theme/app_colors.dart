@@ -16,6 +16,16 @@ class AppColors {
   // Input field colors
   static const Color inputBg = Color(0xFFF5F5F5);
   static const Color inputBorder = Color(0xFFE0E0E0);
+  
+  // New colors for booking flow redesign (matching reference website)
+  static const Color primaryCyan = Color(0xFF06B6D4); // Main accent color
+  static const Color lightCyan = Color(0xFFE0F2FE); // Light background
+  static const Color darkText = Color(0xFF1F2937); // Headings
+  static const Color mediumGray = Color(0xFF6B7280); // Body text
+  static const Color backgroundGray = Color(0xFFF3F4F6); // Light backgrounds
+  static const Color borderGray = Color(0xFFE5E7EB); // Borders
+  static const Color successGreen = Color(0xFF10B981); // Success states
+  static const Color warningOrange = Color(0xFFF59E0B); // Warning states
 }
 
 

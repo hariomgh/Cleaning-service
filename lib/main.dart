@@ -6,6 +6,7 @@ import 'pages/login_page.dart';
 import 'theme/app_colors.dart';
 import 'utils/constants.dart';
 import 'viewmodels/auth_viewmodel.dart';
+import 'viewmodels/booking_viewmodel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,8 +21,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => AuthViewModel(prefs: prefs),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthViewModel(prefs: prefs)),
+        ChangeNotifierProvider(create: (_) => BookingViewModel()),
+      ],
       child: MaterialApp(
         title: 'ShineHub - Cleaning Services',
         debugShowCheckedModeBanner: false,
@@ -34,6 +38,10 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.white,
           useMaterial3: true,
         ),
+        routes: {
+          '/login': (context) => const LoginPage(),
+          '/home': (context) => const HomePage(),
+        },
         home: Consumer<AuthViewModel>(
           builder: (context, viewModel, child) {
             // Check if we have a valid token
